@@ -1,0 +1,2 @@
+class Blade < ApplicationRecord
+end
