@@ -1,17 +1,34 @@
-<%= form_with(model: blade, local: true) do |form| %>
-  <% if blade.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(blade.errors.count, "error") %> prohibited this blade from being saved:</h2>
+<%= form_with(model: blade, local: true) do |f| %>
+<% if blade.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(blade.errors.count, "error") %> prohibited this blade from being saved:</h2>
 
-      <ul>
+    <ul>
         <% blade.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <li><%= message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions">
+
+    <%= f.label :name, "name" %>
+    <%= f.text_field :name %>
+
+    <%= f.label :description, "description" %>
+    <%= f.text_area :description %>
+
+    <%= f.label :price, "price" %>
+    <%= f.text_field :price %>
+
+    <%= f.label :pointy, "pointy" %>
+    <%= f.check_box :pointy %>
+
+    <%= f.label :stock, "stock" %>
+    <%= f.text_field :stock %>
+
+    <br/>
+    <%= f.submit %>
+</div>
 <% end %>
