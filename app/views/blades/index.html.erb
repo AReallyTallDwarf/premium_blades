@@ -1,21 +1,28 @@
 <h1>Blades</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <thead>
+        <tr>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
 
-  <tbody>
-    <% @blades.each do |blade| %>
-      <tr>
-        <td><%= link_to 'Show', blade %></td>
-        <td><%= link_to 'Edit', edit_blade_path(blade) %></td>
-        <td><%= link_to 'Destroy', blade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+    <tbody>
+        <% @blades.each do |blade| %>
+        <tr>
+            <td>Picture</td>
+        </tr>
+        <tr>
+            <td><%= blade.name %></td>
+            <td>€<%= blade.price %></td>
+        </tr>
+        <tr>
+            <td><%= link_to 'Show', blade %></td>
+            <td><%= link_to 'Edit', edit_blade_path(blade) %></td>
+            <td><%= link_to 'Destroy', blade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+    </tbody>
 </table>
 
 <br>
