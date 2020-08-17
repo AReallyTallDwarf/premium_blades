@@ -1,9 +1,10 @@
-<p>Picture<p>
+<p>Picture</p>
 <p><%= @blade.name %></p>
 <p><%= @blade.description %></p>
-<p>€<%= @blade.price %></p>
+<p>€ <%= @blade.price %></p>
 <p><% if @blade.pointy %>Watch your fingers!<% end %></p>
 <p>stock: <%= @blade.stock %></p>
 
 <%= link_to 'Edit', edit_blade_path(@blade) %> |
-<%= link_to 'Back', blades_path %>
+<%= link_to 'Back', blades_path %> |
+<%= link_to 'Destroy', @blade, method: :delete, data: { confirm: 'Are you sure?' } %>

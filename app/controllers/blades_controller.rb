@@ -4,7 +4,7 @@ class BladesController < ApplicationController
   # GET /blades
   # GET /blades.json
   def index
-    @blades = Blade.all
+    @blades = Blade.all.order("name")
   end
 
   # GET /blades/1

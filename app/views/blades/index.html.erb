@@ -13,13 +13,8 @@
             <td>Picture</td>
         </tr>
         <tr>
-            <td><%= blade.name %></td>
-            <td>€<%= blade.price %></td>
-        </tr>
-        <tr>
-            <td><%= link_to 'Show', blade %></td>
-            <td><%= link_to 'Edit', edit_blade_path(blade) %></td>
-            <td><%= link_to 'Destroy', blade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to blade.name, blade %></td>
+            <td>€ <%= blade.price %></td>
         </tr>
         <% end %>
     </tbody>
