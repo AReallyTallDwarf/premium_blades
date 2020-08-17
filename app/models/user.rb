@@ -9,13 +9,4 @@ class User < ApplicationRecord
 
   after_create :create_basket, :create_catalogue
 
-  # private
-  # def create
-  #   @basket = Basket.new(current_user)
-  #   @catalogue = Catalogue.new(current_user)
-    
-  #   @basket.save
-  #   @catalogue.save
-  # end
-  
 end
