@@ -7,13 +7,15 @@ class User < ApplicationRecord
   has_one :catalogue
   has_one :basket
 
-  after_create :create_basket
+  after_create :create_basket, :create_catalogue
 
-  private
-  def create
-    @basket = Basket.new(current_user)
+  # private
+  # def create
+  #   @basket = Basket.new(current_user)
+  #   @catalogue = Catalogue.new(current_user)
     
-    @basket.save  
-  end
+  #   @basket.save
+  #   @catalogue.save
+  # end
   
 end
