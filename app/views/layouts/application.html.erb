@@ -15,6 +15,8 @@
     <%= button_to "logout", destroy_user_session_path, method: :delete  %>
     <%= button_to "login",  new_user_session_path %>
     <%= button_to "register",  new_user_registration_path, method: :get %>
+    <%= button_to "account",  edit_user_registration_path, method: :get %>
+
     <%= yield %>
 </body>
 

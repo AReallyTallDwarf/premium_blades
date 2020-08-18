@@ -26,8 +26,9 @@ class BladesController < ApplicationController
   def create
     @blade = Blade.new(blade_params)
 
+    puts blade_params.inspect
     respond_to do |format|
-      if @blade.save
+      if @blade.save && create_catalogueblade(@blade)
         format.html { redirect_to @blade, notice: 'Blade was successfully created.' }
         format.json { render :show, status: :created, location: @blade }
       else
@@ -70,5 +71,15 @@ class BladesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def blade_params
       params.require(:blade).permit(:name, :description, :price, :pointy, :stock)
+    end
+
+    def create_catalogueblade(blade)
+      @catalogueblade = blade.catalogueblades.build({blade: blade, catalogue: current_user.catalogue, quantity: blade.stock})
+
+      if @catalogueblade.save
+          return true
+      else
+          return false
+      end
     end
 end
