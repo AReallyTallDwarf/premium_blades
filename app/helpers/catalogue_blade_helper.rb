@@ -1,0 +1,2 @@
+module CatalogueBladeHelper
+end

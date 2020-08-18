@@ -43,13 +43,13 @@ ActiveRecord::Schema.define(version: 2020_08_17_085029) do
   end
 
   create_table "catalogue_blades", force: :cascade do |t|
-    t.bigint "basket_id", null: false
+    t.bigint "catalogue_id", null: false
     t.bigint "blade_id", null: false
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["basket_id"], name: "index_catalogue_blades_on_basket_id"
     t.index ["blade_id"], name: "index_catalogue_blades_on_blade_id"
+    t.index ["catalogue_id"], name: "index_catalogue_blades_on_catalogue_id"
   end
 
   create_table "catalogues", force: :cascade do |t|
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_085029) do
   add_foreign_key "basket_blades", "baskets"
   add_foreign_key "basket_blades", "blades"
   add_foreign_key "baskets", "users"
-  add_foreign_key "catalogue_blades", "baskets"
   add_foreign_key "catalogue_blades", "blades"
+  add_foreign_key "catalogue_blades", "catalogues"
   add_foreign_key "catalogues", "users"
 end
