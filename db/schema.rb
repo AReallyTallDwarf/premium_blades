@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_081103) do
+ActiveRecord::Schema.define(version: 2020_08_18_074825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "basketblades", force: :cascade do |t|
+    t.bigint "basket_id", null: false
+    t.bigint "blade_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["basket_id"], name: "index_basketblades_on_basket_id"
+    t.index ["blade_id"], name: "index_basketblades_on_blade_id"
+  end
+
+  create_table "baskets", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_baskets_on_user_id"
+  end
 
   create_table "blades", force: :cascade do |t|
     t.string "name"
@@ -23,6 +40,23 @@ ActiveRecord::Schema.define(version: 2020_08_17_081103) do
     t.integer "stock"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "catalogueblades", force: :cascade do |t|
+    t.bigint "catalogue_id", null: false
+    t.bigint "blade_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["blade_id"], name: "index_catalogueblades_on_blade_id"
+    t.index ["catalogue_id"], name: "index_catalogueblades_on_catalogue_id"
+  end
+
+  create_table "catalogues", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_catalogues_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,4 +71,10 @@ ActiveRecord::Schema.define(version: 2020_08_17_081103) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "basketblades", "baskets"
+  add_foreign_key "basketblades", "blades"
+  add_foreign_key "baskets", "users"
+  add_foreign_key "catalogueblades", "blades"
+  add_foreign_key "catalogueblades", "catalogues"
+  add_foreign_key "catalogues", "users"
 end

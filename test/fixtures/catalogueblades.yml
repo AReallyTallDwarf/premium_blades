@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  catalogue: one
+  blade: one
+  quantity: 1
+
+two:
+  catalogue: two
+  blade: two
+  quantity: 1

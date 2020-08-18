@@ -53,5 +53,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# Adding authentication and users with Devise <3 Aaron
+# <3 Aaron
+# Adding authentication and users with Devise
 gem 'devise'
