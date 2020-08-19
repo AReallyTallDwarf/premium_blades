@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one :catalogue
   has_one :basket
+  has_many :basketblade, through: :basket
 
   after_create :create_basket, :create_catalogue
 end

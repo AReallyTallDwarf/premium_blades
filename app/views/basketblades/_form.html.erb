@@ -1,0 +1,12 @@
+<%= form_with model: Basketblade.new do |f| %>
+
+<div class="actions">
+
+    <%= f.label :quantity, "quantity" %>
+    <%= f.text_field :quantity %>
+    <%= f.hidden_field :blade, :value => @blade.to_param %>
+
+    <br /><br />
+    <%= f.submit "put in basket" %>
+</div>
+<% end %>
