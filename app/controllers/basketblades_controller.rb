@@ -1,5 +1,9 @@
 class BasketbladesController < ApplicationController
 
+    def index
+      @basketblades = current_user.basket.basketblades
+    end
+
     def new
         @basketblade = Basketblade.new
     end

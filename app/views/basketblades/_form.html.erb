@@ -3,7 +3,7 @@
 <div class="actions">
 
     <%= f.label :quantity, "quantity" %>
-    <%= f.text_field :quantity %>
+    <%= f.number_field :quantity, in: 1..@blade.stock, value: 1 %>
     <%= f.hidden_field :blade, :value => @blade.to_param %>
 
     <br /><br />
