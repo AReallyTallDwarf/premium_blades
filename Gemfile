@@ -56,3 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # <3 Aaron
 # Adding authentication and users with Devise
 gem 'devise'
+
+# Quick and easy styling
+gem 'materialize-sass'

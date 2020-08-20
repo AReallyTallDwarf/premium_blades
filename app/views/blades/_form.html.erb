@@ -11,27 +11,30 @@
 </div>
 <% end %>
 
-<div class="actions">
+<div class="row">
+    <div class="col s8 push-s2">
+        <div class="actions">
 
-    <%= f.label :name, "name" %>
-    <%= f.text_field :name %>
+            <%= f.label :name, "name" %>
+            <%= f.text_field :name %>
 
-    <%= f.label :description, "description" %>
-    <%= f.text_area :description %>
+            <%= f.label :description, "description" %>
+            <%= f.text_area :description %>
 
-    <%= f.label :price, "price" %>
-    <%= f.text_field :price %>
+            <%= f.label :price, "price" %>
+            <%= f.number_field :price %>
 
-    <%= f.label :pointy, "pointy" %>
-    <%= f.check_box :pointy %>
+            <%= f.check_box :pointy %><%= f.label :pointy, "pointy" %>
 
-    <%= f.label :stock, "quantity" %>
-    <%= f.text_field :stock %>
+            <%= f.label :stock, "quantity" %>
+            <%= f.number_field :stock %>
 
-    <%= f.label :image %>
-    <%= f.file_field :image %>
+            <%= f.label :image %>
+            <%= f.file_field :image %>
 
-    <br /><br />
-    <%= f.submit %>
+            <br /><br />
+            <%= f.submit %>
+        </div>
+    </div>
 </div>
 <% end %>

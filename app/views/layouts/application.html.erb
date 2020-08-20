@@ -11,14 +11,32 @@
 </head>
 
 <body>
-    <p id="notice"><%= notice %></p>
-    <%= button_to "logout", destroy_user_session_path, method: :delete  %>
-    <%= button_to "login",  new_user_session_path %>
-    <%= button_to "register",  new_user_registration_path, method: :get %>
-    <%= button_to "account",  edit_user_registration_path, method: :get %>
-    <%= button_to "basket",  basketblades_path, method: :get %>
 
-    <%= yield %>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper green lighten-4">
+                <div class="container">
+                    <span class="brand-logo center text-black"><%= link_to "GRASSPRIETJES",  root_path %></span>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <% if user_signed_in? %>
+                        <li><%= link_to "logout", destroy_user_session_path, method: :delete  %></li>
+                        <li><%= link_to "account",  edit_user_registration_path, method: :get %></li>
+                        <li><%= link_to "basket",  basketblades_path, method: :get %></li>
+                        <% else %>
+                        <li><%= link_to "login",  new_user_session_path %></li>
+                        <li><%= link_to "register",  new_user_registration_path, method: :get %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <p id="notice"><%= notice %></p>
+        <%= yield %>
+    </div>
+
 </body>
 
 </html>

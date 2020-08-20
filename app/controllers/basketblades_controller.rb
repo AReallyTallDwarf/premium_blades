@@ -20,24 +20,13 @@ class BasketbladesController < ApplicationController
         end
     end
 
-    # def destroy
-    #   @basketblade = Basketblade.find(basketblade_params)
-    #   if @basketblade.destroy
-    #     flash[:success] = 'Basketblade was successfully deleted.'
-    #     redirect_to basketblades_url
-    #   else
-    #     flash[:error] = 'Something went wrong'
-    #     redirect_to basketblades_url
-    #   end
-    # end
-
     def checkout
       
       result = BladeServices::SubstractBasketbladeQuantityFromStock.new({current_user: current_user}).call
       if result && result.success?
         result2 = BasketbladeServices::DestroyCurrentUserBasketblades.new({current_user: current_user}).call
         if result2 && result2.success?
-          redirect_to :root, :notice => "Checket out successfully! Thanks for your purchase!"
+          redirect_to :root, :notice => "Checked out successfully! Thank you for your purchase!"
         else
           flash[:notice] = "Uh oh... Something went wrong..."
           flash[:notice] = result2.errors
