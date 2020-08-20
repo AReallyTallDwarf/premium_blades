@@ -1,4 +1,8 @@
-<p>Picture</p>
+<% if @blade.image.attached? %>
+<p><%= image_tag(@blade.image, size:"300x300") %></p>
+<% else %>
+<p>image</p>
+<% end %>
 <p><%= @blade.name %></p>
 <p><%= @blade.description %></p>
 <p>€ <%= @blade.price %></p>

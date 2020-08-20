@@ -70,7 +70,7 @@ class BladesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blade_params
-      params.require(:blade).permit(:name, :description, :price, :pointy, :stock)
+      params.require(:blade).permit(:name, :description, :price, :pointy, :stock, :image)
     end
 
     def create_catalogueblade(blade)

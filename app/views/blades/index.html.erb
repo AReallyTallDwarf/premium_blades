@@ -10,7 +10,11 @@
     <tbody>
         <% @blades.each do |blade| %>
         <tr>
-            <td>Picture</td>
+            <% if blade.image.attached? %>
+                <td><%= image_tag(blade.image, size:"300x300") %></td>
+            <% else %>
+                <td>image</td>
+            <% end %>
         </tr>
         <tr>
             <td><%= link_to blade.name, blade %></td>
